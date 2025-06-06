@@ -1,0 +1,80 @@
+services:
+
+  #NODE WEB
+  node-web-aula-14-container:
+    build:
+      context: .
+      dockerfile: docker/node22-web/Dockerfile.dev
+    env_file: .env
+    volumes:
+      - .:/app
+      - node-modules-aula-14-volume:/app/node_modules
+    restart: unless-stopped
+    environment:
+      - IS_CONTAINER=TRUE
+    expose:
+      - ${NODE_PORT}
+    networks:
+      - project-aula-14-network
+    depends_on:
+      - postgres-aula-14-container
+
+  #NODE CLI
+  node-cli-aula-14-container:
+    build:
+      context: .
+      dockerfile: docker/node22-cli/Dockerfile
+    env_file: .env
+    volumes:
+      - .:/app
+      - node-modules-aula-14-volume:/app/node_modules
+    environment:
+      - IS_CONTAINER=TRUE
+    networks:
+      - project-aula-14-network
+    depends_on:
+      - postgres-aula-14-container
+
+  #NGINX
+  nginx-aula-14-container:
+    build:
+      context: .
+      dockerfile: docker/nginx/Dockerfile
+    ports:
+      - "${PORT}:80"
+    volumes:
+      - ./public:/var/www/public
+    depends_on:
+      - node-web-aula-14-container
+    networks:
+      - project-aula-14-network
+
+  #POSTGRES
+  postgres-aula-14-container:
+    image: postgres:17
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+      TZ: America/Sao_Paulo
+    ports:
+      - "6789:${POSTGRES_PORT}"
+    volumes:
+      - pgdata-aula-14-volume:/var/lib/postgresql/data
+      - ./docker/postgres/init:/docker-entrypoint-initdb.d
+    networks:
+      project-aula-14-network:
+        aliases:
+          - ${POSTGRES_HOST}
+
+
+#OTHERS
+
+networks:
+  project-aula-14-network:
+    driver: bridge
+
+volumes:
+  pgdata-aula-14-volume:
+  node-modules-aula-14-volume:
