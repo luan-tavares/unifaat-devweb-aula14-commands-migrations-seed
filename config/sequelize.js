@@ -1,5 +1,5 @@
 import dotenv from 'dotenv';
-dotenv.config(); // <- Isso precisa vir ANTES de qualquer uso de process.env
+dotenv.config();
 
 import { Sequelize } from 'sequelize';
 

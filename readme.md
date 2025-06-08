@@ -7,13 +7,13 @@
 1. Clonar o repositório:
 
    ```sh
-   git clone https://github.com/luan-tavares/unifaat-devweb-aula-14-middleware-formdata-swagger
+   git clone https://github.com/luan-tavares/unifaat-devweb-aula14-commands-migrations-seed
    ```
 
 2. Entrar na pasta do projeto:
 
    ```sh
-   cd unifaat-devweb-aula-14-middleware-formdata-swagger
+   cd unifaat-devweb-aula14-commands-migrations-seed
    ```
 
 3. Criar o arquivo `.env` na raiz do projeto copiando o .env.example:

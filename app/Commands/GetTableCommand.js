@@ -3,9 +3,9 @@ import sequelize from "../../config/sequelize.js";
 
 export default {
 
-    name: 'database:tables',
+    name: 'get-tables',
 
-    description: 'Get Users',
+    description: 'Get Tables',
 
     async handle() {
         const [tables] = await sequelize.query(`

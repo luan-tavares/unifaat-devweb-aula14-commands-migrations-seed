@@ -1,40 +1,40 @@
+// CommandManager.js
 import minimist from "minimist";
 import { readdir } from 'fs/promises';
 import path from "path";
-
 import sequelize from "../config/sequelize.js";
 import chalk from "chalk";
 import CliTable3 from "cli-table3";
 
-export function CommandManager(dir) {
 
-    const listCommands = async () => {
+export default async function createCommandManager(dir) {
+
+    const commands = await (async () => {
         const files = await readdir(dir);
-        const commands = [];
+        const result = [];
 
         for (const file of files) {
             if (!file.endsWith('.js')) continue;
-
             const mod = await import(path.join(dir, file));
             const commandData = mod.default;
-            commands.push([commandData.name || "default", commandData]);
+            result.push([commandData.name || "default", commandData]);
         }
 
-        commands.sort((a, b) => a[0].localeCompare(b[0]));
+        result.sort((a, b) => a[0].localeCompare(b[0]));
 
-        return Object.fromEntries(commands);
-    }
+        return Object.fromEntries(result);
+    })();
 
     const [, , commandName, ...rawArgs] = process.argv;
     const args = minimist(rawArgs);
     delete args["_"];
 
-    const defaultCommand = async (commands) => {
+    const defaultCommand = () => {
         console.log(chalk.bold('\nAvailable commands:\n'));
 
         const table = new CliTable3({
-            head: [chalk.white('Command'), chalk.white('Description')],
-            colWidths: [30, 60],
+            head: [chalk.white('Command'), chalk.white('Description'), chalk.white('arguments')],
+            colWidths: [30, 60, 40],
             style: {
                 head: [],
                 border: []
@@ -43,20 +43,18 @@ export function CommandManager(dir) {
 
         for (const cmd of Object.values(commands)) {
             table.push([
-                chalk.green(cmd.name),
-                chalk.gray(cmd.description)
+                chalk.bgGrey(cmd.name),
+                chalk.greenBright(cmd.description),
+                chalk.yellow(cmd.arguments ? Object.entries(cmd.arguments).map(([key, value]) => `--${key}: ${value}`).join('\n') : '—')
             ]);
         }
 
         console.log(table.toString());
-    }
+    };
 
-    this.execute = async () => {
-
-        const commands = await listCommands();
-
+    const execute = async () => {
         if (!commandName) {
-            defaultCommand(commands);
+            defaultCommand();
             return;
         }
 
@@ -75,7 +73,11 @@ export function CommandManager(dir) {
         } finally {
             await sequelize.close();
         }
+    };
 
-    }
+    return {
+        execute: execute,
+        commands: commands
+    };
 
 }

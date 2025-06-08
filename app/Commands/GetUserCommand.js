@@ -3,7 +3,7 @@ import UserModel from "../Models/UserModel.js"
 
 export default {
 
-    name: 'users:get',
+    name: 'get-users',
     description: 'Get Users',
 
     handle: async function (args) {
