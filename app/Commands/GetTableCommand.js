@@ -8,6 +8,8 @@ export default {
     description: 'Get Tables',
 
     async handle() {
+
+        console.log(process.env.IS_CONTAINER);
         const [tables] = await sequelize.query(`
           SELECT table_name
           FROM information_schema.tables

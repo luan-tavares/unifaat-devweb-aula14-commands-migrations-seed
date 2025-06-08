@@ -2,13 +2,13 @@
 import dotenv from 'dotenv';
 import { Pool } from 'pg';
 
-dotenv.config();
+//dotenv.config();
 
 export default (function () {
 
     const env = process.env;
 
-    const port = (env.IS_CONTAINER === "TRUE") ? (env.POSTGRES_PORT) : (6789);
+    const port = (env.IS_CONTAINER === "TRUE") ? (5432) : (env.POSTGRES_PORT);
 
     const host = (env.IS_CONTAINER === "TRUE") ? (env.POSTGRES_HOST) : ("localhost");
 

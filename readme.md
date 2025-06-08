@@ -39,13 +39,6 @@ JWT_SECRET=super_secreta
 
 5. Subir a aplicação com Docker Compose:
 
-   ```sh
-   docker compose up --build
-   ```
-
-   > ou, dependendo da versão do Docker:
-   >
-   > - Usuários com versões **mais antigas** ou com Docker Compose instalado separadamente usam:
 
    ```sh
    docker-compose up --build
@@ -57,9 +50,43 @@ JWT_SECRET=super_secreta
    docker compose up --build
    ```
 
-6. Criar os usuários acessando essa rota:
+6. Executar as migrations utilizando UM desses comandos:
 
-   [http://localhost:8080/criar-usuarios](http://localhost:8080/criar-usuarios)
+     > - Container:
+    ```sh
+   docker-compose run --rm node-cli-aula-14-container migrate
+   ```
+     > - Container: Usuários com **Docker moderno** devem usar:
+
+   ```sh
+   docker compose run --rm node-cli-aula-14-container migrate
+   ```
+
+    > - Node no host:
+
+   ```sh
+   node command migrate
+   ```
+
+
+7. Executar as seeds utilizando UM desses comandos:
+
+      > - Container:
+    ```sh
+   docker-compose run --rm node-cli-aula-14-container seed
+   ```
+
+     > - Container: Usuários com **Docker moderno** devem usar:
+
+   ```sh
+   docker compose run --rm node-cli-aula-14-container seed
+   ```
+
+     > - Host:
+
+   ```sh
+   node command seed
+   ```
 
 O servidor estará disponível em: [http://localhost:8080](http://localhost:8080)
 
