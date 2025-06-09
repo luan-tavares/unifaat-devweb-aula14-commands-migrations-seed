@@ -4,6 +4,7 @@ meta:
   id: wrk_1764ad092597462a93e22dc0d6b310f7
   created: 1747958810409
   modified: 1748119358883
+  description: ""
 collection:
   - name: Colaboradores
     meta:
@@ -11,14 +12,16 @@ collection:
       created: 1748022818785
       modified: 1748867342408
       sortKey: -1748022818785
+      description: ""
     children:
       - url: http://localhost:8080/api/colaboradores
         name: Listar
         meta:
           id: req_3d0ef3d3523f45f68b1aecc8a50a216b
           created: 1748022825329
-          modified: 1748867295593
+          modified: 1748886809573
           isPrivate: false
+          description: ""
           sortKey: -1748023025581
         method: GET
         parameters:
@@ -34,6 +37,12 @@ collection:
           - name: User-Agent
             value: insomnia/11.1.0
             id: pair_b2f96640e2664cd787f595b1629709d1
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiZW1haWwiOiJ1c2VyMUBleGFtcGxlLmNvbSIsIm5vbWUiOiJVc2VyMSIsInJvbGUiOiJST0xFX1VTRVIiLCJpYXQiOjE3NDg4ODY4MDAsImV4cCI6MTc0ODg4NzQwMH0.UEQz9FsO04G37IZbp3yMKh9rh7Yspy4j6tza-fELbOw
+        scripts:
+          preRequest: ""
+          afterResponse: ""
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -49,6 +58,7 @@ collection:
           created: 1748136502237
           modified: 1748867303267
           isPrivate: false
+          description: ""
           sortKey: -1747976565966.25
         method: POST
         body:
@@ -74,6 +84,9 @@ collection:
             value: insomnia/11.1.0
         authentication:
           type: none
+        scripts:
+          preRequest: ""
+          afterResponse: ""
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -89,6 +102,7 @@ collection:
           created: 1748136561423
           modified: 1748136858547
           isPrivate: false
+          description: ""
           sortKey: -1747953336158.875
         method: PUT
         body:
@@ -112,6 +126,9 @@ collection:
             value: application/json
           - name: User-Agent
             value: insomnia/11.1.0
+        scripts:
+          preRequest: ""
+          afterResponse: ""
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -127,6 +144,7 @@ collection:
           created: 1748136784587
           modified: 1748738774925
           isPrivate: false
+          description: ""
           sortKey: -1747999795773.625
         method: GET
         parameters:
@@ -141,6 +159,9 @@ collection:
         headers:
           - name: User-Agent
             value: insomnia/11.1.0
+        scripts:
+          preRequest: ""
+          afterResponse: ""
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -156,6 +177,7 @@ collection:
           created: 1748136842963
           modified: 1748867316481
           isPrivate: false
+          description: ""
           sortKey: -1747953336058.875
         method: DELETE
         headers:
@@ -163,6 +185,9 @@ collection:
             value: insomnia/11.1.0
         authentication:
           type: none
+        scripts:
+          preRequest: ""
+          afterResponse: ""
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -177,14 +202,16 @@ collection:
       created: 1748024643688
       modified: 1748137666133
       sortKey: -1747999613893.875
+      description: ""
     children:
       - url: http://localhost:8080/api/todos
         name: Listar
         meta:
           id: req_1668282f7ede453f9a9dcdd9cc8b5227
           created: 1748024643689
-          modified: 1748867330864
+          modified: 1749428789826
           isPrivate: false
+          description: ""
           sortKey: -1748023025581
         method: GET
         parameters:
@@ -199,12 +226,17 @@ collection:
           - id: pair_342c2a9781bb4e098dc3c4b1d97e3588
             name: orderBy
             value: updated_at,desc
+            description: ""
             disabled: false
         headers:
           - name: User-Agent
             value: insomnia/11.1.0
         authentication:
-          type: none
+          type: bearer
+          token: "{{ _.token }}"
+        scripts:
+          preRequest: ""
+          afterResponse: ""
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -220,6 +252,7 @@ collection:
           created: 1748026995087
           modified: 1748136966708
           isPrivate: false
+          description: ""
           sortKey: -1747930106351.5
         method: POST
         body:
@@ -243,6 +276,9 @@ collection:
             value: application/json
           - name: User-Agent
             value: insomnia/11.1.0
+        scripts:
+          preRequest: ""
+          afterResponse: ""
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -258,6 +294,7 @@ collection:
           created: 1748137270883
           modified: 1748644806809
           isPrivate: false
+          description: ""
           sortKey: -1747883646736.75
         method: PUT
         body:
@@ -272,6 +309,9 @@ collection:
             value: application/json
           - name: User-Agent
             value: insomnia/11.1.0
+        scripts:
+          preRequest: ""
+          afterResponse: ""
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -287,6 +327,7 @@ collection:
           created: 1748137436603
           modified: 1748137497008
           isPrivate: false
+          description: ""
           sortKey: -1748022922233
         method: GET
         parameters:
@@ -301,6 +342,9 @@ collection:
         headers:
           - name: User-Agent
             value: insomnia/11.1.0
+        scripts:
+          preRequest: ""
+          afterResponse: ""
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -316,11 +360,15 @@ collection:
           created: 1748137600593
           modified: 1748137610479
           isPrivate: false
+          description: ""
           sortKey: -1747883646636.75
         method: DELETE
         headers:
           - name: User-Agent
             value: insomnia/11.1.0
+        scripts:
+          preRequest: ""
+          afterResponse: ""
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -335,14 +383,16 @@ collection:
       created: 1748121194676
       modified: 1748121194676
       sortKey: -1747976409002.75
+      description: ""
     children:
       - url: http://localhost:8080/api/colaboradores-projetos
         name: Inserir Relacionamento
         meta:
           id: req_5d853dfe1fc847879d0059630ebab152
           created: 1748121194677
-          modified: 1748138533347
+          modified: 1749428751993
           isPrivate: false
+          description: ""
           sortKey: -1748023025581
         method: POST
         body:
@@ -357,6 +407,12 @@ collection:
             value: application/json
           - name: User-Agent
             value: insomnia/11.1.0
+        authentication:
+          type: bearer
+          token: "{{ _.token }}"
+        scripts:
+          preRequest: ""
+          afterResponse: ""
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -370,13 +426,20 @@ collection:
         meta:
           id: req_2e52cd3fe6d5482d9b370d8007336aa4
           created: 1748139068395
-          modified: 1748139207505
+          modified: 1749428766747
           isPrivate: false
+          description: ""
           sortKey: -1748022973907
         method: DELETE
         headers:
           - name: User-Agent
             value: insomnia/11.1.0
+        authentication:
+          type: bearer
+          token: "{{ _.token }}"
+        scripts:
+          preRequest: ""
+          afterResponse: ""
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -391,6 +454,7 @@ collection:
       created: 1748137696912
       modified: 1748137696912
       sortKey: -1747988011448.3125
+      description: ""
     children:
       - url: http://localhost:8080/api/projetos
         name: Listar
@@ -399,6 +463,7 @@ collection:
           created: 1748137696913
           modified: 1748138250196
           isPrivate: false
+          description: ""
           sortKey: -1748023025581
         method: GET
         parameters:
@@ -413,6 +478,9 @@ collection:
         headers:
           - name: User-Agent
             value: insomnia/11.1.0
+        scripts:
+          preRequest: ""
+          afterResponse: ""
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -428,6 +496,7 @@ collection:
           created: 1748137696914
           modified: 1748138592543
           isPrivate: false
+          description: ""
           sortKey: -1747883646736.75
         method: PUT
         body:
@@ -450,6 +519,9 @@ collection:
             value: application/json
           - name: User-Agent
             value: insomnia/11.1.0
+        scripts:
+          preRequest: ""
+          afterResponse: ""
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -465,6 +537,7 @@ collection:
           created: 1748137696914
           modified: 1748138435084
           isPrivate: false
+          description: ""
           sortKey: -1747930106351.5
         method: POST
         body:
@@ -478,6 +551,9 @@ collection:
             value: application/json
           - name: User-Agent
             value: insomnia/11.1.0
+        scripts:
+          preRequest: ""
+          afterResponse: ""
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -493,11 +569,15 @@ collection:
           created: 1748137696915
           modified: 1748138616985
           isPrivate: false
+          description: ""
           sortKey: -1747883646636.75
         method: DELETE
         headers:
           - name: User-Agent
             value: insomnia/11.1.0
+        scripts:
+          preRequest: ""
+          afterResponse: ""
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -513,11 +593,15 @@ collection:
           created: 1748137696915
           modified: 1748138522838
           isPrivate: false
+          description: ""
           sortKey: -1748022922233
         method: GET
         headers:
           - name: User-Agent
             value: insomnia/11.1.0
+        scripts:
+          preRequest: ""
+          afterResponse: ""
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -532,26 +616,34 @@ collection:
       created: 1748826163534
       modified: 1748826163534
       sortKey: -1747906794329.375
+      description: ""
     children:
       - url: http://localhost:8080/api/users/image
         name: Enviar foto
         meta:
           id: req_6508122787bf4fdeb473f46138c02164
           created: 1748826163538
-          modified: 1748872058314
+          modified: 1749428733832
           isPrivate: false
+          description: ""
           sortKey: -1748023025581
         method: POST
         body:
           mimeType: multipart/form-data
           params:
-            - name: image
-              id: pair_3bcab8399ab84b75a9b783445efcfc9a
+            - id: pair_3896d0e43cbd46edb94f8054b9d356b5
+              name: image
+              value: ""
+              description: ""
+              disabled: false
               type: file
-              fileName: /home/luan/Pictures/Screenshots/Screenshot from 2025-06-01
-                18-51-35.png
+              fileName: /home/luan/Pictures/Screenshots/Screenshot from 2025-05-29
+                16-06-23.png
         parameters:
-          - id: pair_25ffcd29c3fa4410a58ddbf3135a32a8
+          - id: pair_298c21de587f4e2687872608ecaee52a
+            name: ""
+            value: ""
+            description: ""
             disabled: false
         headers:
           - name: Content-Type
@@ -559,7 +651,11 @@ collection:
           - name: User-Agent
             value: insomnia/11.1.0
         authentication:
-          type: none
+          type: bearer
+          token: "{{ _.token }}"
+        scripts:
+          preRequest: ""
+          afterResponse: ""
         settings:
           renderRequestBody: true
           encodeUrl: true
@@ -573,13 +669,20 @@ collection:
     meta:
       id: req_98328b649959403d849b06a4d7f383f8
       created: 1747957175536
-      modified: 1748139816065
+      modified: 1749428423689
       isPrivate: false
+      description: ""
       sortKey: -1748022818885
     method: GET
     headers:
       - name: User-Agent
         value: insomnia/11.1.0
+    authentication:
+      type: bearer
+      token: "{{ _.token }}"
+    scripts:
+      preRequest: ""
+      afterResponse: ""
     settings:
       renderRequestBody: true
       encodeUrl: true
@@ -595,11 +698,15 @@ collection:
       created: 1747958625462
       modified: 1748139809708
       isPrivate: false
+      description: ""
       sortKey: -1748022818835
     method: GET
     headers:
       - name: User-Agent
         value: insomnia/11.1.0
+    scripts:
+      preRequest: ""
+      afterResponse: ""
     settings:
       renderRequestBody: true
       encodeUrl: true
@@ -615,11 +722,15 @@ collection:
       created: 1748189834658
       modified: 1748189837954
       isPrivate: false
+      description: ""
       sortKey: -1748022818860
     method: GET
     headers:
       - name: User-Agent
         value: insomnia/11.1.0
+    scripts:
+      preRequest: ""
+      afterResponse: ""
     settings:
       renderRequestBody: true
       encodeUrl: true
@@ -633,48 +744,38 @@ collection:
     meta:
       id: req_46883bc333d54c63b609230854fb298f
       created: 1748819186801
-      modified: 1748867116949
+      modified: 1749428479084
       isPrivate: false
+      description: ""
       sortKey: -1748022818810
     method: POST
     body:
       mimeType: application/x-www-form-urlencoded
       params:
         - name: email
-          value: user1@example.com
+          value: user2@example.com
           id: pair_d879a0f81afa41ddaa4b619f1c9e7265
         - id: pair_40957dead79b46d9afa038f3b6794e68
           name: senha
           value: "123456"
+          description: ""
           disabled: false
     parameters:
       - id: pair_36b3f52f71124335a74e6ea01b7f5127
+        name: ""
+        value: ""
+        description: ""
         disabled: false
     headers:
       - name: Content-Type
         value: application/x-www-form-urlencoded
       - name: User-Agent
         value: insomnia/11.1.0
-    settings:
-      renderRequestBody: true
-      encodeUrl: true
-      followRedirects: global
-      cookies:
-        send: true
-        store: true
-      rebuildPath: true
-  - url: http://localhost:8080/criar-usuarios
-    name: Criar Usuários - SOMENTE UMA VEZ
-    meta:
-      id: req_1d0f2d813ea546618be0c2dbdd8980ee
-      created: 1748866707866
-      modified: 1748866732044
-      isPrivate: false
-      sortKey: -1748022818822.5
-    method: GET
-    headers:
-      - name: User-Agent
-        value: insomnia/11.1.0
+    scripts:
+      preRequest: ""
+      afterResponse: |-
+        const jsonBody = insomnia.response.json();
+        insomnia.environment.set("token", jsonBody.token);
     settings:
       renderRequestBody: true
       encodeUrl: true
@@ -688,11 +789,13 @@ cookieJar:
   meta:
     id: jar_85433cac38bb491db4757d48745b0c8a
     created: 1746921355374
-    modified: 1746921355374
+    modified: 1749428590386
 environments:
   name: Base Environment
   meta:
     id: env_d15f91b9ae2045d888f2d5b49d48a45a
     created: 1746921355373
-    modified: 1746921355373
+    modified: 1749428590388
     isPrivate: false
+  data:
+    token: e

@@ -1,7 +1,6 @@
 import dotenv from 'dotenv';
 import constants from './constants.js';
 import helpers from './helpers.js';
-import '../config/sequelize_relations.js';
 
 /** Init .env file */
 dotenv.config();

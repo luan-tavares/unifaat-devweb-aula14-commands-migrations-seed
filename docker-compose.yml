@@ -12,6 +12,8 @@ services:
     restart: unless-stopped
     environment:
       - IS_CONTAINER=TRUE
+      - POSTGRES_HOST=postgres_host
+      - POSTGRES_PORT=5432
     expose:
       - ${NODE_PORT}
     networks:
@@ -30,6 +32,8 @@ services:
       - node-modules-aula-14-volume:/app/node_modules
     environment:
       - IS_CONTAINER=TRUE
+      - POSTGRES_HOST=postgres_host
+      - POSTGRES_PORT=5432
     networks:
       - project-aula-14-network
     depends_on:
@@ -66,7 +70,7 @@ services:
     networks:
       project-aula-14-network:
         aliases:
-          - ${POSTGRES_HOST}
+          - postgres_host
 
 
 #OTHERS

@@ -1,24 +1,20 @@
-import dotenv from 'dotenv';
-dotenv.config();
-
 import { Sequelize } from 'sequelize';
+import dotenv from 'dotenv';
 
 
 export default (function () {
 
+    dotenv.config();
+
     const env = process.env;
-
-    const port = (env.IS_CONTAINER === "TRUE") ? (5432) : (env.POSTGRES_PORT);
-
-    const host = (env.IS_CONTAINER === "TRUE") ? (env.POSTGRES_HOST) : ("localhost");
 
     const conection = new Sequelize(
         env.POSTGRES_DB,
         env.POSTGRES_USER,
         env.POSTGRES_PASSWORD,
         {
-            host: host,
-            port: port,
+            host: env.POSTGRES_HOST,
+            port: env.POSTGRES_PORT,
             dialect: 'postgres',
             logging: false
         }

@@ -68,7 +68,15 @@ export default async function createCommandManager(dir) {
         try {
             await command.handle(args);
         } catch (error) {
-            console.error('Error running command:', error);
+            if (error.name === 'SequelizeConnectionRefusedError') {
+                console.error('\n❌ Falha ao conectar no banco de dados!');
+                console.error(`🔌 Host: ${process.env.POSTGRES_HOST}`);
+                console.error(`🔌 Porta: ${process.env.POSTGRES_PORT}`);
+                console.error(`🧾 Erro: ${error.message}`);
+                process.exit(1);
+            }
+            console.error('\n[Erro inesperado]');
+            console.error(error);
             process.exit(1);
         } finally {
             await sequelize.close();
