@@ -108,3 +108,4 @@ Observação: ./Insomnia.yml DEVE utilizado no insomnia
 | `express-fileupload` | Middleware para lidar com upload de arquivos via `multipart/form-data`.    |
 | `minimist`           | Faz o parsing de argumentos de linha de comando.                           |
 | `cli-table3`         | Cria tabelas formatadas para exibição no terminal.                         |
+| `axios`              | Client de requisições http.                                                |
