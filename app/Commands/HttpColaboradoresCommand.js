@@ -21,6 +21,8 @@ export default {
 
             const tokenData = response.data;
 
+            console.log(tokenData);
+
             /** Codar */
         } catch (error) {
             console.error('Erro na requisição:', error.response?.data || error.message);

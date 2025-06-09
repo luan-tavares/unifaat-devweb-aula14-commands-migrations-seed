@@ -35,13 +35,13 @@ export default async function (dir, server) {
                     bearerAuth: {
                         type: 'http',
                         scheme: 'bearer',
-                        bearerFormat: 'JWT' // ou 'OAuth2' se for com fluxo real
+                        bearerFormat: 'JWT'
                     }
                 }
             },
             security: [
                 {
-                    bearerAuth: [] // aplica para todas as rotas
+                    bearerAuth: []
                 }
             ],
             paths: resources
