@@ -54,12 +54,12 @@ JWT_SECRET=super_secreta
 
      > - Container:
     ```sh
-   docker-compose run --rm node-cli-aula-14-container migrate
+   docker-compose run --rm cli-container migrate
    ```
      > - Container: Usuários com **Docker moderno** devem usar:
 
    ```sh
-   docker compose run --rm node-cli-aula-14-container migrate
+   docker compose run --rm cli-container migrate
    ```
 
     > - Node no host:
@@ -73,13 +73,13 @@ JWT_SECRET=super_secreta
 
       > - Container:
     ```sh
-   docker-compose run --rm node-cli-aula-14-container seed
+   docker-compose run --rm cli-container seed
    ```
 
      > - Container: Usuários com **Docker moderno** devem usar:
 
    ```sh
-   docker compose run --rm node-cli-aula-14-container seed
+   docker compose run --rm cli-container seed
    ```
 
      > - Host:
