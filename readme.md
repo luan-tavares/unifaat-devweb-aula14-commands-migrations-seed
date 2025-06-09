@@ -37,13 +37,8 @@ POSTGRES_PASSWORD=minha_senha
 JWT_SECRET=super_secreta
 ```
 
-5. Instalar as dependências
 
-   ```sh
-   npm install
-   ```
-
-6. Subir a aplicação com Docker Compose:
+5. Subir a aplicação com Docker Compose:
 
 
    ```sh
@@ -56,7 +51,7 @@ JWT_SECRET=super_secreta
    docker compose up --build
    ```
 
-7. Executar as migrations utilizando UM desses comandos:
+6. Executar as migrations utilizando UM desses comandos:
 
      > - Container:
     ```sh
@@ -68,14 +63,8 @@ JWT_SECRET=super_secreta
    docker compose run --rm cli-container migrate
    ```
 
-    > - Node no host:
 
-   ```sh
-   node command migrate
-   ```
-
-
-8. Executar as seeds utilizando UM desses comandos:
+7. Executar as seeds utilizando UM desses comandos:
 
       > - Container:
     ```sh
@@ -88,11 +77,6 @@ JWT_SECRET=super_secreta
    docker compose run --rm cli-container seed
    ```
 
-     > - Host:
-
-   ```sh
-   node command seed
-   ```
 
 O servidor estará disponível em: [http://localhost:8080](http://localhost:8080)
 
