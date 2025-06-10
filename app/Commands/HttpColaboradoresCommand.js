@@ -10,8 +10,6 @@ export default {
 
         const url = (process.env.IS_CONTAINER) ? ("http://web_host:80") : ("http://localhost:8080");
 
-        console.log(url);
-
         const data = new URLSearchParams();
         data.append('email', 'user1@example.com');
         data.append('senha', '123456');

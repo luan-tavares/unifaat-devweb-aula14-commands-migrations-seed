@@ -5,6 +5,7 @@ import path from "path";
 import sequelize from "../config/sequelize.js";
 import chalk from "chalk";
 import CliTable3 from "cli-table3";
+import { pathToFileURL } from 'url';
 
 
 export default async function createCommandManager(dir) {
@@ -15,7 +16,20 @@ export default async function createCommandManager(dir) {
 
         for (const file of files) {
             if (!file.endsWith('.js')) continue;
-            const mod = await import(path.join(dir, file));
+
+            const fullFile = path.join(dir, file);
+
+            // AQUI INICIA A ALTERACAO
+
+            // Como era antes
+            // const mod = await import(fullFile);
+
+            // Como é agora, espero que funcione no windows
+            const urlFile = pathToFileURL(fullFile).href;
+            const mod = await import(urlFile);
+
+            // AQUI TERMINA A ALTERACAO
+
             const commandData = mod.default;
             result.push([commandData.name || "default", commandData]);
         }

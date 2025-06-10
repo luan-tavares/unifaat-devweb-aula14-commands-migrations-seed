@@ -3,7 +3,7 @@ import db from '../../config/db.js';
 async function up() {
   await db.query(`
     ALTER TABLE colaboradores
-    ADD COLUMN cargo VARCHAR(155) AFTER nome;
+    ADD COLUMN cargo VARCHAR(155);
   `);
 }
 
