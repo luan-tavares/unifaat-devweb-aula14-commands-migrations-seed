@@ -51,7 +51,9 @@ services:
     depends_on:
       - node-web-aula-14-container
     networks:
-      - project-aula-14-network
+      project-aula-14-network:
+        aliases:
+            - web_host
 
   #POSTGRES
   postgres-aula-14-container:

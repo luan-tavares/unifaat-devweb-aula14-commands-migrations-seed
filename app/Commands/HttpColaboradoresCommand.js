@@ -8,12 +8,16 @@ export default {
 
     handle: async function () {
 
+        const url = (process.env.IS_CONTAINER) ? ("http://web_host:80") : ("http://localhost:8080");
+
+        console.log(url);
+
         const data = new URLSearchParams();
         data.append('email', 'user1@example.com');
         data.append('senha', '123456');
 
         try {
-            const response = await axios.post('http://localhost:8080/login', data, {
+            const response = await axios.post(`${url}/login`, data, {
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded'
                 }
@@ -21,9 +25,39 @@ export default {
 
             const tokenData = response.data;
 
-            console.log(tokenData);
+            const token = tokenData.token;
 
-            /** Codar */
+            let offset = 0;
+            const limit = 5;
+
+            const table = new CliTable3({
+                head: ['Nome', "Projetos"],
+                colWidths: [40, 30],
+                style: {
+                    head: ['green'],
+                    border: ['grey']
+                }
+            })
+
+            while (offset !== null) {
+                const response = await axios.get(`${url}/api/colaboradores`, {
+                    params: { 'offset': offset, 'limit': limit },
+                    headers: { "Authorization": `Bearer ${token}` }
+                });
+
+                offset = response.data.next;
+
+                response.data.rows.forEach(row => {
+                    const projetos = row.projetos.map(projeto => projeto.nome).join('\n');
+
+                    table.push([row.nome, projetos]);
+                });
+
+
+            }
+
+            console.log(table.toString());
+
         } catch (error) {
             console.error('Erro na requisição:', error.response?.data || error.message);
             return;
